@@ -1,6 +1,8 @@
 /* ===== AlphaSole Clearance — shared funnel config (landing + upsell) ===== */
 window.AS = (function(){
   var STORE = "https://alphasole.com"; // native checkout host
+  var SF_TOKEN = "117474c9d33e97e604ce5a37d50ba444"; // public Storefront API token (safe client-side)
+  var SF_ENDPOINT = STORE + "/api/2024-01/graphql.json";
 
   // variant id maps by size key (S = Small/Medium, L = Large/X-Large, XL = X-Large)
   var V = {
@@ -104,32 +106,59 @@ window.AS = (function(){
   };
   var ORDER = ["comfort6","system","bunion4","pf","starter3","recovery"];
 
-  // upsell add-ons shown after bundle selection
+  // upsell add-ons shown after bundle selection (sizes[] = ask size on add)
   var UPSELLS = [
-    {id:"u_bunion", variant:V.bunion,    name:"Alpha II Bunion Corrector", price:19.99, img:IMG.bunion,    b:"Add a spare or treat your other foot."},
-    {id:"u_sleeve", variant:V.sleeve.L,  name:"Compression Foot Sleeves",  price:9.99,  img:IMG.sleeve,    b:"Arch & heel support for plantar fasciitis."},
-    {id:"u_calf",   variant:V.calf.L,    name:"Compression Calf Sleeve",   price:9.99,  img:IMG.calf,      b:"Beat shin splints & boost circulation."},
-    {id:"u_gloves", variant:V.gloves,    name:"Compression Gloves",        price:14.99, img:IMG.gloves,    b:"Soothe arthritis & tired hands."},
-    {id:"u_slider", variant:V.slider,    name:"Alpha Sock Slider",         price:9.99,  img:IMG.slider,    b:"Put socks on without bending over."},
-    {id:"u_alpha",  variant:V.alphasock.L,name:"The Alpha Sock",           price:29.99, img:IMG.alphasock, b:"Targeted plantar-fasciitis relief sock."}
+    {id:"u_bunion", variant:V.bunion,     name:"Alpha II Bunion Corrector", price:19.99, img:IMG.bunion,    b:"Add a spare or treat your other foot."},
+    {id:"u_sleeve", name:"Compression Foot Sleeves", price:9.99, img:IMG.sleeve, b:"Arch & heel support for plantar fasciitis.",
+      sizes:[{k:"S",label:"Small / Medium",variant:V.sleeve.S},{k:"L",label:"Large / X-Large",variant:V.sleeve.L}]},
+    {id:"u_calf",   name:"Compression Calf Sleeve", price:9.99, img:IMG.calf, b:"Beat shin splints & boost circulation.",
+      sizes:[{k:"S",label:"Small / Medium",variant:V.calf.S},{k:"L",label:"Large / X-Large",variant:V.calf.L}]},
+    {id:"u_gloves", variant:V.gloves,     name:"Compression Gloves",        price:14.99, img:IMG.gloves,    b:"Soothe arthritis & tired hands."},
+    {id:"u_slider", variant:V.slider,     name:"Alpha Sock Slider",         price:9.99,  img:IMG.slider,    b:"Put socks on without bending over."},
+    {id:"u_alpha",  name:"The Alpha Sock", price:29.99, img:IMG.alphasock, b:"Targeted plantar-fasciitis relief sock.",
+      sizes:[{k:"L",label:"Large / X-Large",variant:V.alphasock.L},{k:"XL",label:"XX-Large",variant:V.alphasock.XL}]}
   ];
 
-  // build a /cart checkout url from item strings + discount code
-  function checkoutUrl(items, code){
-    var url = STORE + "/cart/" + items.join(",") + "?storefront=true";
-    if(code) url += "&discount=" + encodeURIComponent(code);
-    // carry UTMs / fbclid through to checkout
-    try{
-      var qs = new URLSearchParams(location.search), keep=[];
-      ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","fbclid"].forEach(function(k){
-        if(qs.get(k)) keep.push(k+"="+encodeURIComponent(qs.get(k)));
-      });
-      if(keep.length) url += "&" + keep.join("&");
+  // US sizing guide — sock/sleeve sizes map to US shoe size
+  var SIZE_GUIDE = {
+    title:"US Size Guide",
+    rows:[
+      {size:"Small / Medium (S/M)", us:"US Men 5–9 · US Women 6–10"},
+      {size:"Large / X-Large (L/XL)", us:"US Men 9.5–13 · US Women 10.5–14"},
+      {size:"X-Large", us:"US Men 12–15 (extra room / wide calf)"},
+      {size:"XX-Large", us:"US Men 13+ · widest fit"}
+    ],
+    note:"Socks, foot sleeves & calf sleeves use the same sizing. The Bunion Corrector & Sock Slider are one-size-fits-most. Between sizes? Size up for a looser fit."
+  };
+
+  // Direct-to-checkout via Storefront API cartCreate (returns checkout URL). Falls back to cart permalink.
+  // itemStrings: ["variantId:qty", ...]  ·  code: optional discount code
+  function startCheckout(itemStrings, code, onErr){
+    var lines = itemStrings.map(function(s){ var p=s.split(":"); return {merchandiseId:"gid://shopify/ProductVariant/"+p[0], quantity:parseInt(p[1]||"1",10)}; });
+    var attrs = []; // carry UTM/fbclid as cart attributes
+    try{ var qs=new URLSearchParams(location.search);
+      ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","fbclid"].forEach(function(k){ if(qs.get(k)) attrs.push({key:k,value:qs.get(k)}); });
     }catch(e){}
-    return url;
+    var input = {lines:lines};
+    if(code) input.discountCodes=[code];
+    if(attrs.length) input.attributes=attrs;
+    var q="mutation($input:CartInput!){cartCreate(input:$input){cart{checkoutUrl}userErrors{message}}}";
+    return fetch(SF_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","X-Shopify-Storefront-Access-Token":SF_TOKEN},body:JSON.stringify({query:q,variables:{input:input}})})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        var url=d&&d.data&&d.data.cartCreate&&d.data.cartCreate.cart&&d.data.cartCreate.cart.checkoutUrl;
+        if(url){ window.location.href=url; }
+        else { throw new Error("no checkout url"); }
+      })
+      .catch(function(e){
+        // fallback: cart permalink (lands on cart page but still works)
+        var url=STORE+"/cart/"+itemStrings.join(",")+"?storefront=true"+(code?"&discount="+encodeURIComponent(code):"");
+        if(onErr) onErr();
+        window.location.href=url;
+      });
   }
 
   function pixel(ev, data){ try{ if(window.fbq) fbq('track', ev, data||{}); }catch(e){} }
 
-  return { STORE:STORE, BUNDLES:BUNDLES, ORDER:ORDER, UPSELLS:UPSELLS, checkoutUrl:checkoutUrl, pixel:pixel };
+  return { STORE:STORE, BUNDLES:BUNDLES, ORDER:ORDER, UPSELLS:UPSELLS, SIZE_GUIDE:SIZE_GUIDE, startCheckout:startCheckout, pixel:pixel };
 })();

@@ -95,10 +95,62 @@
   .faq summary:after{content:"+";font-size:1.3rem;color:var(--copper)}
   .faq details[open] summary:after{content:"–"}
   .faq .ans{padding:0 18px 16px;color:var(--slate);font-size:.92rem}
-  .stickycta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:10px 14px;display:none;z-index:55;box-shadow:0 -4px 18px rgba(0,0,0,.08)}
+  .sizeguide{display:inline-block;margin:-6px 0 12px;font-size:.8rem;color:var(--copper);font-weight:700;text-decoration:none;cursor:pointer}
+  .sizeguide:hover{text-decoration:underline}
+  /* size-guide modal */
+  .modal{position:fixed;inset:0;background:rgba(8,17,28,.6);display:none;align-items:center;justify-content:center;z-index:80;padding:18px}
+  .modal.open{display:flex}
+  .modal .box{background:#fff;border-radius:18px;max-width:440px;width:100%;padding:22px;position:relative}
+  .modal h3{color:var(--navy);font-size:1.3rem;margin-bottom:4px}
+  .modal .x{position:absolute;top:12px;right:14px;font-size:1.5rem;color:var(--slate);cursor:pointer;background:none;border:none;line-height:1}
+  .sgtable{width:100%;border-collapse:collapse;margin:14px 0}
+  .sgtable td{padding:10px 8px;border-bottom:1px solid var(--line);font-size:.88rem;vertical-align:top}
+  .sgtable td:first-child{font-weight:800;color:var(--navy);font-family:'Archivo';white-space:nowrap}
+  .sgtable td:last-child{color:var(--slate)}
+  .modal .note{font-size:.8rem;color:var(--slate);background:var(--cloud);padding:10px 12px;border-radius:10px}
+  /* benefits strip */
+  .benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;max-width:900px;margin:0 auto}
+  .bcard{text-align:center;padding:6px}
+  .bcard .ic{font-size:1.7rem;margin-bottom:6px}
+  .bcard h4{font-size:.96rem;color:var(--navy);margin-bottom:3px}
+  .bcard p{font-size:.82rem;color:var(--slate)}
+  /* science */
+  .science{background:var(--cloud)}
+  .science .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;align-items:center}
+  .science img{border-radius:16px}
+  .science h2{font-size:1.7rem;color:var(--navy);margin-bottom:12px}
+  .science li{list-style:none;padding:8px 0 8px 30px;position:relative;color:var(--ink);font-size:.94rem}
+  .science li:before{content:"✓";position:absolute;left:0;top:7px;width:20px;height:20px;background:var(--green);color:#fff;border-radius:50%;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .science li b{color:var(--navy)}
+  /* stats band */
+  .statsband{background:var(--navy);color:#fff;text-align:center;padding:32px 0}
+  .statsband .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;max-width:900px;margin:0 auto}
+  .stat .n{font-family:'Archivo';font-weight:900;font-size:2.3rem;color:var(--amber);line-height:1}
+  .stat .l{font-size:.84rem;color:#cdd9e4;margin-top:6px}
+  /* who it's for */
+  .audience{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px}
+  .acard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
+  .acard .ic{font-size:1.6rem;margin-bottom:7px}
+  .acard h4{font-size:.92rem;color:var(--navy);margin-bottom:4px}
+  .acard p{font-size:.8rem;color:var(--slate)}
+  /* credibility */
+  .cred{background:var(--cloud);text-align:center;padding:34px 0}
+  .cred .badge{font-size:2.4rem;margin-bottom:10px}
+  .cred h2{font-size:1.55rem;color:var(--navy);margin-bottom:10px}
+  .cred p{max-width:640px;margin:0 auto;color:var(--slate)}
+  /* how it works */
+  .steps3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+  .step3{text-align:center;padding:8px}
+  .step3 .num{width:42px;height:42px;border-radius:50%;background:var(--copper);color:#fff;font-family:'Archivo';font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:1.1rem}
+  .step3 h4{color:var(--navy);font-size:1rem;margin-bottom:4px}
+  .step3 p{font-size:.85rem;color:var(--slate)}
+  /* mobile sticky live-visitor bar (replaces CTA) */
+  .stickylive{position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:#fff;padding:11px 14px;display:none;z-index:55;box-shadow:0 -4px 18px rgba(0,0,0,.18);align-items:center;justify-content:center;gap:9px;font-size:.84rem;font-weight:600}
+  .stickylive .ldot{width:8px;height:8px}
   footer{background:#08111c;color:#7e93a6;text-align:center;padding:24px 18px 90px;font-size:.78rem}
   footer a{color:#9fb4c7;text-decoration:none}
-  @media(max-width:600px){.hero h1{font-size:1.95rem}.sec-head h2{font-size:1.5rem}.stickycta{display:block}.trust .wrap{gap:13px;font-size:.74rem}}
+  @media(max-width:760px){.science .grid{grid-template-columns:1fr}.science .imgcol{display:none}}
+  @media(max-width:600px){.hero h1{font-size:1.95rem}.sec-head h2{font-size:1.5rem}.stickylive{display:flex}.trust .wrap{gap:13px;font-size:.74rem}}
 </style>
 </head>
 <body>
@@ -122,7 +174,15 @@
   <h2>Why is everything so cheap?</h2>
   <p>Our warehouse gave us notice and we have weeks to clear thousands of units. Rather than ship it all back, we'd rather get our best products onto real feet — the same premium gear, now at true liquidation pricing. When it's gone, it's gone.</p>
 </section>
-<section class="sec" id="bundles"><div class="wrap">
+<section class="sec" style="padding-top:18px"><div class="wrap">
+  <div class="benefits">
+    <div class="bcard"><div class="ic">🩸</div><h4>Better Circulation</h4><p>Graduated compression keeps blood moving &amp; legs energized.</p></div>
+    <div class="bcard"><div class="ic">🦶</div><h4>Less Swelling &amp; Pain</h4><p>Eases tired, achy, swollen feet and ankles all day.</p></div>
+    <div class="bcard"><div class="ic">⚡</div><h4>All-Day Energy</h4><p>Feel fresher after long shifts, flights &amp; workouts.</p></div>
+    <div class="bcard"><div class="ic">🛡️</div><h4>Copper Antimicrobial</h4><p>Fights odor &amp; bacteria for fresher feet, wear after wear.</p></div>
+  </div>
+</div></section>
+<section class="sec" id="bundles" style="padding-top:8px"><div class="wrap">
   <div class="sec-head">
     <div class="k">Pick Your Relief — Stock Up &amp; Save</div>
     <h2>Clearance Bundles</h2>
@@ -130,6 +190,60 @@
   </div>
   <div class="bundles" id="bundleGrid"></div>
 </div></section>
+<!-- SCIENCE -->
+<section class="sec science"><div class="wrap">
+  <div class="grid">
+    <div>
+      <div class="sec-head" style="text-align:left;margin-bottom:14px"><div class="k">The Science</div><h2 style="margin-top:6px">Why Compression Works</h2></div>
+      <ul style="padding:0;margin:0">
+        <li><b>Graduated pressure</b> is tightest at the ankle and eases up the leg — gently pushing blood back toward the heart instead of letting it pool.</li>
+        <li><b>Less swelling &amp; fatigue</b> by improving circulation, so feet and legs feel lighter through long days on your feet.</li>
+        <li><b>Faster recovery</b> for runners and active people — better blood flow means less soreness and quicker bounce-back.</li>
+        <li><b>Copper-infused fibers</b> are naturally antimicrobial, fighting odor and keeping socks fresher between washes.</li>
+      </ul>
+    </div>
+    <div class="imgcol"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/DSC06893_ea15ac87-77cf-4ec2-a8bd-bdcd816712df.jpg" alt="Copper compression socks"></div>
+  </div>
+</div></section>
+
+<!-- STATS -->
+<section class="statsband"><div class="wrap"><div class="grid">
+  <div class="stat"><div class="n">75%</div><div class="l">of adults experience foot problems in their lifetime</div></div>
+  <div class="stat"><div class="n">8 hrs+</div><div class="l">the average person on their feet spends standing daily</div></div>
+  <div class="stat"><div class="n">9,000+</div><div class="l">happy AlphaSole customers &amp; counting</div></div>
+  <div class="stat"><div class="n">4.7★</div><div class="l">average customer rating</div></div>
+</div></div></section>
+
+<!-- AUDIENCE -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><div class="k">Made For You</div><h2>Who It's For</h2><p>If you're on your feet or your feet are slowing you down — this is for you.</p></div>
+  <div class="audience">
+    <div class="acard"><div class="ic">🏥</div><h4>Nurses &amp; Workers</h4><p>On your feet all shift, every shift.</p></div>
+    <div class="acard"><div class="ic">✈️</div><h4>Travelers</h4><p>Beat swelling on long flights &amp; drives.</p></div>
+    <div class="acard"><div class="ic">🏃</div><h4>Runners &amp; Athletes</h4><p>Recover faster, push harder.</p></div>
+    <div class="acard"><div class="ic">🦶</div><h4>Bunion &amp; Heel Pain</h4><p>Targeted, non-surgical relief.</p></div>
+    <div class="acard"><div class="ic">👵</div><h4>Circulation Issues</h4><p>Gentle support for tired, swollen legs.</p></div>
+    <div class="acard"><div class="ic">💪</div><h4>Diabetics &amp; Seniors</h4><p>Comfortable, non-binding all-day wear.</p></div>
+  </div>
+</div></div></section>
+
+<!-- CREDIBILITY -->
+<section class="cred"><div class="wrap">
+  <div class="badge">🩺</div>
+  <h2>Built on Proven Compression Therapy</h2>
+  <p>Compression is widely recommended by healthcare professionals to support circulation, reduce swelling and ease tired legs. AlphaSole brings that same proven principle into everyday comfort — engineered for real people on real feet, trusted by thousands.</p>
+</div></section>
+
+<!-- HOW IT WORKS -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><div class="k">Simple</div><h2>How It Works</h2></div>
+  <div class="steps3">
+    <div class="step3"><div class="num">1</div><h4>Pick your bundle</h4><p>Choose the relief that fits your needs and your size.</p></div>
+    <div class="step3"><div class="num">2</div><h4>Add any extras</h4><p>Round out your order with clearance add-ons.</p></div>
+    <div class="step3"><div class="num">3</div><h4>Feel the difference</h4><p>Slip them on and give your feet the relief they've been missing.</p></div>
+  </div>
+</div></section>
+
 <section class="guarantee"><div class="wrap">
   <div class="seal">30 DAY<br>GUARANTEE</div>
   <h2>Love It or Your Money Back</h2>
@@ -155,7 +269,18 @@
   © AlphaSole. Warehouse clearance while stock lasts. All prices in USD.<br>
   <a href="#bundles">Shop Clearance</a> · Secure checkout powered by Shopify
 </footer>
-<div class="stickycta"><a href="#bundles" class="btn btn-buy">🛒 Shop the Clearance — Up to 70% Off</a></div>
+<div class="stickylive"><span class="ldot"></span><span id="viewerCountSticky">63</span> people viewing this clearance right now</div>
+
+<!-- SIZE GUIDE MODAL -->
+<div class="modal" id="sizeModal">
+  <div class="box">
+    <button class="x" onclick="closeSizeGuide()">×</button>
+    <h3 id="sgTitle">US Size Guide</h3>
+    <p style="color:var(--slate);font-size:.86rem">Find your size by your US shoe size.</p>
+    <table class="sgtable" id="sgTable"></table>
+    <div class="note" id="sgNote"></div>
+  </div>
+</div>
 
 <!-- FB PIXEL -->
 <script>
@@ -169,7 +294,7 @@ var grid=document.getElementById('bundleGrid');
 AS.ORDER.forEach(function(id){
   var b=AS.BUNDLES[id];
   var save=(b.was-b.price).toFixed(2);
-  var sizeSel = b.sizes.length ? '<select class="size">'+b.sizes.map(function(s){return '<option value="'+s.k+'">Size: '+s.label+'</option>';}).join('')+'</select>' : '';
+  var sizeSel = b.sizes.length ? '<select class="size">'+b.sizes.map(function(s){return '<option value="'+s.k+'">Size: '+s.label+'</option>';}).join('')+'</select><a class="sizeguide" onclick="openSizeGuide()">📏 View US size guide</a>' : '';
   var inside = '<details class="inside"><summary>See what\'s inside &amp; how it helps</summary><div class="insidebody">'+
      b.inside.map(function(i){return '<div class="ii"><img src="'+i.img+'" alt=""><div><div class="iin">'+i.n+'</div><div class="iib">'+i.b+'</div></div></div>';}).join('')+'</div></details>';
   var card=document.createElement('div');
@@ -195,8 +320,18 @@ AS.ORDER.forEach(function(id){
   });
   grid.appendChild(card);
 });
-/* live viewer counter */
-(function(){var top=document.getElementById('viewerCountTop');function up(){var n=54+Math.floor(Math.random()*24);if(top)top.textContent=n;}up();setInterval(up,7000);})();
+/* size guide modal */
+(function(){
+  var sg=AS.SIZE_GUIDE, t=document.getElementById('sgTable');
+  document.getElementById('sgTitle').textContent=sg.title;
+  document.getElementById('sgNote').textContent=sg.note;
+  t.innerHTML=sg.rows.map(function(r){return '<tr><td>'+r.size+'</td><td>'+r.us+'</td></tr>';}).join('');
+})();
+window.openSizeGuide=function(){document.getElementById('sizeModal').classList.add('open');};
+window.closeSizeGuide=function(){document.getElementById('sizeModal').classList.remove('open');};
+document.getElementById('sizeModal').addEventListener('click',function(e){if(e.target===this)closeSizeGuide();});
+/* live viewer counter (hero + mobile sticky) */
+(function(){var els=[document.getElementById('viewerCountTop'),document.getElementById('viewerCountSticky')];function up(){var n=54+Math.floor(Math.random()*24);els.forEach(function(e){if(e)e.textContent=n;});}up();setInterval(up,7000);})();
 /* countdown 72h */
 (function(){var K='as_clear_deadline',dl=localStorage.getItem(K);if(!dl){dl=Date.now()+72*3600*1000;localStorage.setItem(K,dl);}dl=parseInt(dl,10);var el=document.getElementById('countdown');function t(){var s=Math.max(0,Math.floor((dl-Date.now())/1000)),h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;el.textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(x<10?'0':'')+x;}t();setInterval(t,1000);})();
 </script>

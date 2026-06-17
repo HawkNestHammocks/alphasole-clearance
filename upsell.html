@@ -104,18 +104,24 @@ document.getElementById('selBundle').innerHTML =
   '<div class="pr"><div class="now">$'+b.price.toFixed(2)+'</div><div class="was">$'+b.was.toFixed(2)+'</div></div>';
 fbq('track','InitiateCheckout',{content_name:b.name,value:b.price,currency:'USD'});
 
-/* render upsells */
+/* render upsells (size-selectable items reveal a size picker on Add) */
 var chosen={}; var list=document.getElementById('upsellList');
 AS.UPSELLS.forEach(function(u){
   var row=document.createElement('div'); row.className='up';
-  row.innerHTML='<img src="'+u.img+'" alt=""><div class="info"><div class="un">'+u.name+'</div><div class="ub">'+u.b+'</div><div class="up-pr">$'+u.price.toFixed(2)+'</div></div>'+
+  var sizeSel='';
+  if(u.sizes){ sizeSel='<select class="upsize" style="display:none;margin-top:7px;width:100%;max-width:200px;padding:8px 10px;border:1px solid var(--line);border-radius:9px;font-family:Inter;font-weight:600;font-size:.84rem">'+
+    u.sizes.map(function(s){return '<option value="'+s.variant+'">Size: '+s.label+'</option>';}).join('')+'</select>'; }
+  row.innerHTML='<img src="'+u.img+'" alt=""><div class="info"><div class="un">'+u.name+'</div><div class="ub">'+u.b+'</div><div class="up-pr">$'+u.price.toFixed(2)+'</div>'+sizeSel+'</div>'+
     '<button class="addbtn">+ Add</button>';
   var btn=row.querySelector('.addbtn');
+  var sel=row.querySelector('.upsize');
+  function variantNow(){ return sel ? sel.value : u.variant; }
   btn.addEventListener('click',function(){
-    if(chosen[u.id]){ delete chosen[u.id]; btn.classList.remove('added'); btn.textContent='+ Add'; }
-    else { chosen[u.id]=u; btn.classList.add('added'); btn.textContent='✓ Added'; fbq('track','AddToCart',{content_name:u.name,value:u.price,currency:'USD'}); }
+    if(chosen[u.id]){ delete chosen[u.id]; btn.classList.remove('added'); btn.textContent='+ Add'; if(sel) sel.style.display='none'; }
+    else { chosen[u.id]={price:u.price,name:u.name,variant:variantNow()}; btn.classList.add('added'); btn.textContent='✓ Added'; if(sel) sel.style.display='block'; fbq('track','AddToCart',{content_name:u.name,value:u.price,currency:'USD'}); }
     recalc();
   });
+  if(sel) sel.addEventListener('change',function(){ if(chosen[u.id]) chosen[u.id].variant=sel.value; });
   list.appendChild(row);
 });
 
@@ -123,17 +129,18 @@ function recalc(){
   var extra=0; Object.keys(chosen).forEach(function(k){extra+=chosen[k].price;});
   var total=b.price+extra;
   document.getElementById('orderTotal').textContent='$'+total.toFixed(2);
-  var saved=(b.was-b.price);
-  document.getElementById('saveNote').textContent='You save $'+saved.toFixed(2)+' on your bundle';
+  document.getElementById('saveNote').textContent='You save $'+(b.was-b.price).toFixed(2)+' on your bundle';
 }
 recalc();
 
-/* checkout: bundle items + chosen upsells + discount -> straight to checkout */
-document.getElementById('checkoutBtn').addEventListener('click',function(){
+/* checkout: bundle items + chosen upsells -> straight to Shopify checkout (Storefront API) */
+var cbtn=document.getElementById('checkoutBtn');
+cbtn.addEventListener('click',function(){
+  if(cbtn.dataset.busy) return; cbtn.dataset.busy="1";
+  cbtn.textContent="Loading secure checkout…";
   var items=b.items(size||'L').slice();
   Object.keys(chosen).forEach(function(k){ items.push(chosen[k].variant+':1'); });
-  var url=AS.checkoutUrl(items, b.code);
-  window.location.href=url;
+  AS.startCheckout(items, b.code, function(){ cbtn.textContent="🔒 Proceed to Secure Checkout →"; delete cbtn.dataset.busy; });
 });
 
 /* viewer counter + countdown */
