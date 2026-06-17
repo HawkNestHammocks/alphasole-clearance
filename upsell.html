@@ -111,7 +111,10 @@ AS.UPSELLS.forEach(function(u){
   var sizeSel='';
   if(u.sizes){ sizeSel='<select class="upsize" style="display:none;margin-top:7px;width:100%;max-width:200px;padding:8px 10px;border:1px solid var(--line);border-radius:9px;font-family:Inter;font-weight:600;font-size:.84rem">'+
     u.sizes.map(function(s){return '<option value="'+s.variant+'">Size: '+s.label+'</option>';}).join('')+'</select>'; }
-  row.innerHTML='<img src="'+u.img+'" alt=""><div class="info"><div class="un">'+u.name+'</div><div class="ub">'+u.b+'</div><div class="up-pr">$'+u.price.toFixed(2)+'</div>'+sizeSel+'</div>'+
+  var pct=u.was?Math.round((1-u.price/u.was)*100):0;
+  var prHtml='<div class="up-pr">$'+u.price.toFixed(2)+
+    (u.was?' <span style="color:#9aa7b4;text-decoration:line-through;font-weight:500;font-size:.86em">$'+u.was.toFixed(2)+'</span> <span style="color:var(--green-d);font-weight:800;font-size:.78em">'+pct+'% OFF</span>':'')+'</div>';
+  row.innerHTML='<img src="'+u.img+'" alt=""><div class="info"><div class="un">'+u.name+'</div><div class="ub">'+u.b+'</div>'+prHtml+sizeSel+'</div>'+
     '<button class="addbtn">+ Add</button>';
   var btn=row.querySelector('.addbtn');
   var sel=row.querySelector('.upsize');

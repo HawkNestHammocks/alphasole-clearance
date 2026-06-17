@@ -108,14 +108,14 @@ window.AS = (function(){
 
   // upsell add-ons shown after bundle selection (sizes[] = ask size on add)
   var UPSELLS = [
-    {id:"u_bunion", variant:V.bunion,     name:"Alpha II Bunion Corrector", price:19.99, img:IMG.bunion,    b:"Add a spare or treat your other foot."},
-    {id:"u_sleeve", name:"Compression Foot Sleeves", price:9.99, img:IMG.sleeve, b:"Arch & heel support for plantar fasciitis.",
+    {id:"u_bunion", variant:V.bunion,     name:"Alpha II Bunion Corrector", price:19.99, was:39.99, img:IMG.bunion,    b:"Add a spare or treat your other foot."},
+    {id:"u_sleeve", name:"Compression Foot Sleeves", price:9.99, was:29.99, img:IMG.sleeve, b:"Arch & heel support for plantar fasciitis.",
       sizes:[{k:"S",label:"Small / Medium",variant:V.sleeve.S},{k:"L",label:"Large / X-Large",variant:V.sleeve.L}]},
-    {id:"u_calf",   name:"Compression Calf Sleeve", price:9.99, img:IMG.calf, b:"Beat shin splints & boost circulation.",
+    {id:"u_calf",   name:"Compression Calf Sleeve", price:9.99, was:29.99, img:IMG.calf, b:"Beat shin splints & boost circulation.",
       sizes:[{k:"S",label:"Small / Medium",variant:V.calf.S},{k:"L",label:"Large / X-Large",variant:V.calf.L}]},
-    {id:"u_gloves", variant:V.gloves,     name:"Compression Gloves",        price:14.99, img:IMG.gloves,    b:"Soothe arthritis & tired hands."},
-    {id:"u_slider", variant:V.slider,     name:"Alpha Sock Slider",         price:9.99,  img:IMG.slider,    b:"Put socks on without bending over."},
-    {id:"u_alpha",  name:"The Alpha Sock", price:29.99, img:IMG.alphasock, b:"Targeted plantar-fasciitis relief sock.",
+    {id:"u_gloves", variant:V.gloves,     name:"Compression Gloves",        price:14.99, was:29.99, img:IMG.gloves,    b:"Soothe arthritis & tired hands."},
+    {id:"u_slider", variant:V.slider,     name:"Alpha Sock Slider",         price:9.99,  was:19.99, img:IMG.slider,    b:"Put socks on without bending over."},
+    {id:"u_alpha",  name:"The Alpha Sock", price:29.99, was:39.99, img:IMG.alphasock, b:"Targeted plantar-fasciitis relief sock.",
       sizes:[{k:"L",label:"Large / X-Large",variant:V.alphasock.L},{k:"XL",label:"XX-Large",variant:V.alphasock.XL}]}
   ];
 
