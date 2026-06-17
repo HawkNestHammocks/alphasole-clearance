@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Your Order — AlphaSole Clearance</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0c2740;--navy2:#143a5c;--copper:#c0703b;--copper-d:#a85c2a;--amber:#e8a33d;--green:#1f9d57;--green-d:#157a43;--red:#d23b32;--ink:#16202b;--slate:#5a6b7d;--cloud:#f4f6f9;--line:#e2e8f0}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cloud);line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:120px}
+  h1,h2,h3{font-family:'Archivo';letter-spacing:-.02em;line-height:1.08}
+  img{max-width:100%;display:block}
+  .wrap{max-width:680px;margin:0 auto;padding:0 16px}
+  .urgency{background:linear-gradient(90deg,#b5302a,#d23b32);color:#fff;text-align:center;font-weight:700;font-size:.84rem;padding:8px 12px}
+  #countdown{font-variant-numeric:tabular-nums;background:rgba(0,0,0,.22);padding:2px 8px;border-radius:6px}
+  header{background:var(--navy);color:#fff;text-align:center;padding:12px 0}
+  .logo{font-family:'Archivo';font-weight:900;font-size:1.25rem;letter-spacing:.16em;text-transform:uppercase}
+  .logo span{color:var(--copper)}
+  .steps{display:flex;justify-content:center;gap:8px;margin:14px 0 4px;font-size:.74rem;font-weight:700;color:var(--slate)}
+  .steps b{color:var(--green)}
+  .steps .on{color:var(--copper)}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:16px;box-shadow:0 4px 18px rgba(12,39,64,.06)}
+  .panel h2{font-size:1.25rem;color:var(--navy);margin-bottom:4px}
+  .panel .lede{color:var(--slate);font-size:.9rem;margin-bottom:14px}
+  /* selected bundle summary */
+  .sel{display:flex;gap:14px;align-items:center;background:#fbf4e9;border:1px solid #f0dcbb;border-radius:14px;padding:13px}
+  .sel img{width:74px;height:74px;border-radius:11px;object-fit:cover;flex-shrink:0}
+  .sel .nm{font-family:'Archivo';font-weight:800;color:var(--navy);font-size:1.02rem}
+  .sel .meta{font-size:.8rem;color:var(--slate)}
+  .sel .pr{margin-left:auto;text-align:right}
+  .sel .pr .now{font-family:'Archivo';font-weight:900;color:var(--navy);font-size:1.3rem}
+  .sel .pr .was{font-size:.82rem;color:#9aa7b4;text-decoration:line-through}
+  .changed{display:inline-block;margin-top:8px;font-size:.78rem;color:var(--copper);text-decoration:none;font-weight:700}
+  /* upsell list */
+  .up{display:flex;gap:12px;align-items:center;padding:13px 0;border-top:1px solid var(--line)}
+  .up img{width:58px;height:58px;border-radius:10px;object-fit:cover;flex-shrink:0;background:var(--cloud)}
+  .up .info{flex:1;min-width:0}
+  .up .un{font-family:'Archivo';font-weight:700;color:var(--navy);font-size:.92rem}
+  .up .ub{font-size:.78rem;color:var(--slate)}
+  .up .up-pr{font-weight:800;color:var(--navy);font-size:.92rem;margin-top:2px}
+  .addbtn{border:2px solid var(--green);background:#fff;color:var(--green-d);font-family:'Archivo';font-weight:800;font-size:.82rem;padding:9px 15px;border-radius:11px;cursor:pointer;white-space:nowrap;transition:all .12s}
+  .addbtn.added{background:var(--green);color:#fff}
+  /* order total bar */
+  .totbar{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:2px solid var(--line)}
+  .totbar .tl{font-family:'Archivo';font-weight:700;color:var(--navy)}
+  .totbar .tv{font-family:'Archivo';font-weight:900;font-size:1.5rem;color:var(--navy)}
+  .savenote{text-align:right;font-size:.78rem;color:var(--green-d);font-weight:700}
+  .checkout{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:11px 16px;box-shadow:0 -4px 18px rgba(0,0,0,.08);z-index:40}
+  .checkout .inner{max-width:680px;margin:0 auto}
+  .btn-checkout{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:linear-gradient(180deg,#23b56a,var(--green-d));color:#fff;font-family:'Archivo';font-weight:800;font-size:1.12rem;padding:16px;border:none;border-radius:14px;cursor:pointer;box-shadow:0 8px 20px rgba(21,122,67,.32);text-transform:uppercase;letter-spacing:.02em}
+  .btn-checkout:hover{transform:translateY(-1px)}
+  .csub{text-align:center;font-size:.74rem;color:var(--slate);margin-top:7px}
+  .livebar{display:flex;align-items:center;justify-content:center;gap:8px;font-size:.8rem;color:var(--slate);font-weight:600;margin:14px 0 0}
+  .ldot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 1.5s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 7px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+</style>
+</head>
+<body>
+<div class="urgency">⚠️ Your clearance price is locked for <span id="countdown">14:59</span> — complete your order</div>
+<header><div class="logo">Alpha<span>Sole</span></div></header>
+<div class="wrap">
+  <div class="steps"><b>✓ 1. Bundle</b> ·· <span class="on">2. Add-ons</span> ·· 3. Checkout</div>
+
+  <div class="panel">
+    <h2>Nice choice! 🎉</h2>
+    <div class="lede">Here's your bundle. Add any popular extras below, then checkout — everything ships together, free.</div>
+    <div class="sel" id="selBundle"></div>
+    <a class="changed" href="index.html">← Change bundle</a>
+  </div>
+
+  <div class="panel">
+    <h2>Add these before you go</h2>
+    <div class="lede">Clearance-priced extras our customers love. One tap to add — only while stock lasts.</div>
+    <div id="upsellList"></div>
+    <div class="totbar"><div class="tl">Order total</div><div style="text-align:right"><div class="tv" id="orderTotal">$0.00</div><div class="savenote" id="saveNote"></div></div></div>
+  </div>
+  <div class="livebar"><span class="ldot"></span><span id="viewerCount">47</span> people checking out right now</div>
+</div>
+
+<div class="checkout"><div class="inner">
+  <button class="btn-checkout" id="checkoutBtn">🔒 Proceed to Secure Checkout →</button>
+  <div class="csub">Free shipping · 30-day money-back guarantee · Ships from USA</div>
+</div></div>
+
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','438458274020081');fbq('track','PageView');
+</script>
+<script src="bundles.js"></script>
+<script>
+var qs=new URLSearchParams(location.search);
+var bid=qs.get('b'), size=qs.get('size')||'';
+var b=AS.BUNDLES[bid];
+if(!b){ location.href='index.html'; }
+
+/* render selected bundle */
+var sizeLabel = (b.sizes.find&&b.sizes.find(function(s){return s.k===size;})||{}).label;
+document.getElementById('selBundle').innerHTML =
+  '<img src="'+b.img+'" alt=""><div><div class="nm">'+b.name+'</div>'+
+  '<div class="meta">'+(sizeLabel?'Size: '+sizeLabel+' · ':'')+'Bundle price locked</div></div>'+
+  '<div class="pr"><div class="now">$'+b.price.toFixed(2)+'</div><div class="was">$'+b.was.toFixed(2)+'</div></div>';
+fbq('track','InitiateCheckout',{content_name:b.name,value:b.price,currency:'USD'});
+
+/* render upsells */
+var chosen={}; var list=document.getElementById('upsellList');
+AS.UPSELLS.forEach(function(u){
+  var row=document.createElement('div'); row.className='up';
+  row.innerHTML='<img src="'+u.img+'" alt=""><div class="info"><div class="un">'+u.name+'</div><div class="ub">'+u.b+'</div><div class="up-pr">$'+u.price.toFixed(2)+'</div></div>'+
+    '<button class="addbtn">+ Add</button>';
+  var btn=row.querySelector('.addbtn');
+  btn.addEventListener('click',function(){
+    if(chosen[u.id]){ delete chosen[u.id]; btn.classList.remove('added'); btn.textContent='+ Add'; }
+    else { chosen[u.id]=u; btn.classList.add('added'); btn.textContent='✓ Added'; fbq('track','AddToCart',{content_name:u.name,value:u.price,currency:'USD'}); }
+    recalc();
+  });
+  list.appendChild(row);
+});
+
+function recalc(){
+  var extra=0; Object.keys(chosen).forEach(function(k){extra+=chosen[k].price;});
+  var total=b.price+extra;
+  document.getElementById('orderTotal').textContent='$'+total.toFixed(2);
+  var saved=(b.was-b.price);
+  document.getElementById('saveNote').textContent='You save $'+saved.toFixed(2)+' on your bundle';
+}
+recalc();
+
+/* checkout: bundle items + chosen upsells + discount -> straight to checkout */
+document.getElementById('checkoutBtn').addEventListener('click',function(){
+  var items=b.items(size||'L').slice();
+  Object.keys(chosen).forEach(function(k){ items.push(chosen[k].variant+':1'); });
+  var url=AS.checkoutUrl(items, b.code);
+  window.location.href=url;
+});
+
+/* viewer counter + countdown */
+(function(){var v=document.getElementById('viewerCount');function up(){v.textContent=38+Math.floor(Math.random()*16);}up();setInterval(up,7000);})();
+(function(){var s=15*60;var el=document.getElementById('countdown');function t(){s=Math.max(0,s-1);var m=Math.floor(s/60),x=s%60;el.textContent=m+':'+(x<10?'0':'')+x;}t();setInterval(t,1000);})();
+</script>
+</body>
+</html>
