@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlphaSole Warehouse Clearance — Up to 70% Off Premium Foot Relief</title>
+<meta name="description" content="Our warehouse is closing. Everything must go. Premium copper compression socks, bunion correctors & foot relief gear at up to 70% off — while stock lasts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0c2740; --navy2:#143a5c; --copper:#c0703b; --copper-d:#a85c2a;
+    --amber:#e8a33d; --green:#1f9d57; --green-d:#157a43; --red:#d23b32;
+    --ink:#16202b; --slate:#5a6b7d; --cloud:#f4f6f9; --line:#e2e8f0; --white:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Archivo',sans-serif;letter-spacing:-0.02em;line-height:1.05}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;font-family:'Archivo',sans-serif;font-weight:800;border-radius:14px;transition:transform .12s ease,box-shadow .12s ease;text-decoration:none}
+  .btn:active{transform:translateY(1px)}
+  .btn-buy{background:linear-gradient(180deg,#23b56a,var(--green-d));color:#fff;font-size:1.05rem;padding:15px 22px;width:100%;box-shadow:0 8px 20px rgba(21,122,67,.32);text-transform:uppercase;letter-spacing:.03em}
+  .btn-buy:hover{box-shadow:0 12px 28px rgba(21,122,67,.42);transform:translateY(-1px)}
+
+  /* URGENCY BAR */
+  .urgency{background:linear-gradient(90deg,#b5302a,#d23b32);color:#fff;text-align:center;font-weight:700;font-size:.86rem;padding:9px 12px;position:sticky;top:0;z-index:60;letter-spacing:.01em}
+  .urgency b{font-weight:800}
+  #countdown{font-variant-numeric:tabular-nums;background:rgba(0,0,0,.22);padding:2px 8px;border-radius:6px;margin-left:4px}
+
+  /* HEADER */
+  header{background:var(--navy);color:#fff;text-align:center;padding:14px 0 0}
+  .logo{font-family:'Archivo';font-weight:900;font-size:1.5rem;letter-spacing:.16em;text-transform:uppercase}
+  .logo span{color:var(--copper)}
+  .logo small{display:block;font-family:'Inter';font-weight:500;font-size:.62rem;letter-spacing:.42em;color:#9fb4c7;margin-top:2px}
+
+  /* HERO */
+  .hero{background:linear-gradient(180deg,var(--navy),var(--navy2));color:#fff;text-align:center;padding:26px 0 34px;position:relative;overflow:hidden}
+  .hero .pill{display:inline-block;background:rgba(232,163,61,.16);border:1px solid rgba(232,163,61,.5);color:var(--amber);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin-bottom:16px}
+  .hero h1{font-size:2.5rem;font-weight:900;margin-bottom:14px}
+  .hero h1 em{font-style:normal;color:var(--amber);display:block}
+  .hero p.sub{font-size:1.06rem;color:#cdd9e4;max-width:620px;margin:0 auto 22px}
+  .hero .herometa{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+  .hero .herometa div{font-size:.8rem;color:#bcccd9;display:flex;align-items:center;gap:6px}
+  .hero-cta{background:var(--amber);color:var(--navy);font-size:1.1rem;padding:16px 34px;margin-top:8px;border-radius:14px;box-shadow:0 10px 26px rgba(232,163,61,.34)}
+  .hero-cta:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,163,61,.45)}
+
+  /* TRUST STRIP */
+  .trust{background:var(--cloud);border-bottom:1px solid var(--line)}
+  .trust .wrap{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;padding:14px 18px;font-size:.82rem;font-weight:600;color:var(--navy)}
+  .trust b{color:var(--copper)}
+
+  /* WHY / STORY */
+  .why{text-align:center;padding:34px 0 6px}
+  .why h2{font-size:1.5rem;margin-bottom:10px;color:var(--navy)}
+  .why p{max-width:660px;margin:0 auto;color:var(--slate);font-size:1rem}
+
+  /* SECTION TITLE */
+  .sec{padding:30px 0}
+  .sec-head{text-align:center;margin-bottom:22px}
+  .sec-head .k{color:var(--copper);font-weight:800;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+  .sec-head h2{font-size:1.9rem;color:var(--navy);margin-top:6px}
+  .sec-head p{color:var(--slate);margin-top:6px}
+
+  /* BUNDLE GRID */
+  .bundles{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 18px rgba(12,39,64,.06);position:relative;transition:box-shadow .15s,transform .15s}
+  .card:hover{box-shadow:0 14px 34px rgba(12,39,64,.13);transform:translateY(-3px)}
+  .card.featured{border:2px solid var(--amber);box-shadow:0 12px 32px rgba(232,163,61,.22)}
+  .ribbon{position:absolute;top:14px;left:14px;background:var(--red);color:#fff;font-family:'Archivo';font-weight:800;font-size:.72rem;padding:5px 11px;border-radius:8px;letter-spacing:.04em;z-index:3}
+  .best{position:absolute;top:0;right:0;background:var(--amber);color:var(--navy);font-family:'Archivo';font-weight:900;font-size:.68rem;letter-spacing:.1em;padding:6px 14px;border-bottom-left-radius:12px;z-index:3;text-transform:uppercase}
+  .card .imgwrap{background:var(--cloud);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .card .imgwrap img{width:100%;height:100%;object-fit:cover}
+  .card .body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+  .card h3{font-size:1.22rem;color:var(--navy);margin-bottom:4px}
+  .card .desc{font-size:.86rem;color:var(--slate);margin-bottom:12px;min-height:38px}
+  .card .incl{font-size:.8rem;color:var(--ink);margin-bottom:12px;padding-left:2px}
+  .card .incl li{list-style:none;padding:3px 0 3px 22px;position:relative}
+  .card .incl li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+  .priceline{display:flex;align-items:baseline;gap:10px;margin-bottom:3px}
+  .priceline .now{font-family:'Archivo';font-weight:900;font-size:2rem;color:var(--navy)}
+  .priceline .was{font-size:1.05rem;color:#9aa7b4;text-decoration:line-through}
+  .savebadge{display:inline-block;background:rgba(31,157,87,.12);color:var(--green-d);font-weight:800;font-size:.8rem;padding:3px 10px;border-radius:7px;margin-bottom:14px;width:fit-content}
+  .perunit{font-size:.76rem;color:var(--slate);margin:-8px 0 12px}
+  select.size{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:11px;font-family:'Inter';font-size:.92rem;font-weight:600;color:var(--ink);background:#fff;margin-bottom:12px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235a6b7d' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .stockbar{margin-top:12px;font-size:.74rem;color:var(--red);font-weight:700;text-align:center}
+  .ctaspace{margin-top:auto}
+
+  /* SINGLES */
+  .singles{background:var(--cloud)}
+  .sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+  .scard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:center;display:flex;flex-direction:column}
+  .scard img{aspect-ratio:1/1;object-fit:cover;background:var(--cloud)}
+  .scard .sb{padding:11px 11px 13px;display:flex;flex-direction:column;flex:1}
+  .scard h4{font-size:.84rem;color:var(--navy);margin-bottom:6px;font-family:'Archivo';font-weight:700;line-height:1.15}
+  .scard .sp{font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:2px}
+  .scard .sw{font-size:.74rem;color:#9aa7b4;text-decoration:line-through}
+  .scard .sadd{margin-top:auto;background:var(--navy);color:#fff;border:none;border-radius:9px;padding:9px;font-weight:700;font-size:.8rem;cursor:pointer;font-family:'Archivo';margin-top:10px}
+  .scard .sadd:hover{background:var(--copper)}
+
+  /* GUARANTEE */
+  .guarantee{background:var(--navy);color:#fff;text-align:center;padding:36px 0}
+  .guarantee .seal{width:70px;height:70px;border:3px solid var(--amber);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Archivo';font-weight:900;color:var(--amber);font-size:.7rem;line-height:1;margin:0 auto 16px;text-align:center;padding:6px}
+  .guarantee h2{font-size:1.6rem;margin-bottom:10px}
+  .guarantee p{max-width:560px;margin:0 auto;color:#cdd9e4}
+
+  /* REVIEWS */
+  .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .rev{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+  .rev .stars{color:var(--amber);font-size:1rem;letter-spacing:2px}
+  .rev p{font-size:.9rem;color:var(--ink);margin:8px 0 10px}
+  .rev .who{font-size:.8rem;font-weight:700;color:var(--navy)}
+  .rev .vrf{font-size:.72rem;color:var(--green);font-weight:700}
+
+  /* FAQ */
+  .faq details{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:#fff;overflow:hidden}
+  .faq summary{padding:15px 18px;font-weight:700;color:var(--navy);cursor:pointer;font-family:'Archivo';list-style:none;display:flex;justify-content:space-between;align-items:center}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:after{content:"+";font-size:1.3rem;color:var(--copper)}
+  .faq details[open] summary:after{content:"–"}
+  .faq .ans{padding:0 18px 16px;color:var(--slate);font-size:.92rem}
+
+  /* STICKY MOBILE CTA */
+  .stickycta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:10px 14px;display:none;z-index:55;box-shadow:0 -4px 18px rgba(0,0,0,.08)}
+  .stickycta .btn-buy{padding:14px}
+
+  footer{background:#08111c;color:#7e93a6;text-align:center;padding:26px 18px 90px;font-size:.78rem}
+  footer a{color:#9fb4c7;text-decoration:none}
+
+  @media(max-width:600px){
+    .hero h1{font-size:1.95rem}
+    .sec-head h2{font-size:1.5rem}
+    .stickycta{display:block}
+    .trust .wrap{gap:14px;font-size:.74rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- URGENCY BAR -->
+<div class="urgency">⚠️ <b>WAREHOUSE CLOSING — EVERYTHING MUST GO.</b> Clearance ends in <span id="countdown">72:00:00</span></div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">Alpha<span>Sole</span><small>Foot Relief &amp; Recovery</small></div>
+  <div class="hero">
+    <div class="wrap">
+      <div class="pill">Final Warehouse Liquidation</div>
+      <h1>We're Clearing the Warehouse.<em>Up to 70% Off Everything.</em></h1>
+      <p class="sub">Our fulfillment warehouse is closing its doors and we're liquidating our entire stock of premium copper-compression socks, bunion correctors and foot-relief gear — at prices we've never offered and never will again.</p>
+      <a href="#bundles" class="btn hero-cta">Shop the Clearance →</a>
+      <div class="herometa">
+        <div>✓ Free shipping on bundles</div>
+        <div>✓ 30-day money-back guarantee</div>
+        <div>✓ While stock lasts</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST STRIP -->
+<div class="trust"><div class="wrap">
+  <span>⭐ <b>4.7/5</b> from 9,000+ customers</span>
+  <span>🚚 Ships from <b>USA</b></span>
+  <span>🔒 Secure Shopify checkout</span>
+  <span>💳 <b>Up to 70% off</b> today</span>
+</div></div>
+
+<!-- WHY -->
+<section class="why wrap">
+  <h2>Why is everything so cheap?</h2>
+  <p>It's simple: our warehouse gave us notice and we have weeks to clear thousands of units. Rather than ship it back, we'd rather get our best products onto real feet. That's your win — the same gear that normally sells for full price, now at liquidation pricing. When it's gone, it's gone.</p>
+</section>
+
+<!-- BUNDLES -->
+<section class="sec" id="bundles">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="k">Best Value — Stock Up &amp; Save</div>
+      <h2>Clearance Bundles</h2>
+      <p>The more you grab, the more you save. Free shipping on every bundle.</p>
+    </div>
+    <div class="bundles">
+
+      <!-- COPPER 6 PACK -->
+      <div class="card featured">
+        <div class="best">★ Best Value</div>
+        <div class="ribbon">SAVE 63%</div>
+        <div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/Alpha_Sole_3_Pack_7_159f4269-eb40-4077-b63e-3c7bf13b6e7f.png" alt="Copper Compression Socks 6 Pack"></div>
+        <div class="body">
+          <h3>Copper Compression Socks — 6 Pairs</h3>
+          <div class="desc">All-day support, circulation &amp; odor control. Copper-infused for tired, achy feet &amp; legs.</div>
+          <div class="priceline"><span class="now">$54.99</span><span class="was">$149.94</span></div>
+          <div class="perunit">Just $9.17 a pair</div>
+          <div class="savebadge">You save $94.95</div>
+          <select class="size" data-bundle="copper6">
+            <option value="9990492454948">Size: Large (6 pairs)</option>
+            <option value="9990491144228">Size: Small (6 pairs)</option>
+            <option value="9990494126116">Size: X-Large (6 pairs)</option>
+          </select>
+          <div class="ctaspace">
+            <button class="btn btn-buy" data-qty="6" data-price="54.99" data-name="Copper 6-Pack">Add 6 Pairs — $54.99</button>
+            <div class="stockbar">🔥 Selling fast — limited stock left</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ULTIMATE KIT -->
+      <div class="card featured">
+        <div class="best">★ Most Complete</div>
+        <div class="ribbon">SAVE 47%</div>
+        <div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/Deon_Nel_Photography-22.jpg" alt="Ultimate Foot Relief Kit"></div>
+        <div class="body">
+          <h3>Ultimate Foot Relief Kit</h3>
+          <div class="desc">Everything for happy feet in one box — our full relief lineup.</div>
+          <ul class="incl">
+            <li>1× Alpha II Bunion Corrector</li>
+            <li>2× Copper Compression Socks</li>
+            <li>2× Compression Foot Sleeves</li>
+            <li>1× Compression Calf Sleeve</li>
+          </ul>
+          <div class="priceline"><span class="now">$49.99</span><span class="was">$94.93</span></div>
+          <div class="savebadge">You save $44.94</div>
+          <select class="size" data-bundle="kit">
+            <option value="L">Socks/Sleeves: Large</option>
+            <option value="S">Socks/Sleeves: Small</option>
+          </select>
+          <div class="ctaspace">
+            <button class="btn btn-buy" data-qty="6" data-price="49.99" data-name="Ultimate Kit">Get the Kit — $49.99</button>
+            <div class="stockbar">🔥 Our #1 seller this week</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUNION 4 PACK -->
+      <div class="card">
+        <div class="ribbon">SAVE 50%</div>
+        <div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/Deon_Nel_Photography-23.jpg" alt="Bunion Corrector 4 Pack"></div>
+        <div class="body">
+          <h3>Bunion Corrector — 4 Pack</h3>
+          <div class="desc">Gentle day or night realignment. Treat both feet &amp; keep spares.</div>
+          <div class="priceline"><span class="now">$39.99</span><span class="was">$79.96</span></div>
+          <div class="perunit">Just $10.00 each</div>
+          <div class="savebadge">You save $39.97</div>
+          <div class="ctaspace">
+            <button class="btn btn-buy" data-variant="8667394703396" data-qty="4" data-price="39.99" data-name="Bunion 4-Pack">Add 4-Pack — $39.99</button>
+            <div class="stockbar">🔥 Best-selling relief product</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COPPER 3 PACK -->
+      <div class="card">
+        <div class="ribbon">SAVE 53%</div>
+        <div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/x_1_7_339a9013-ad8d-45e8-b5e8-ee9d148067b3.png" alt="Copper Compression Socks 3 Pack"></div>
+        <div class="body">
+          <h3>Copper Compression Socks — 3 Pairs</h3>
+          <div class="desc">A great starter set of our copper-infused compression socks.</div>
+          <div class="priceline"><span class="now">$34.99</span><span class="was">$74.97</span></div>
+          <div class="perunit">Just $11.66 a pair</div>
+          <div class="savebadge">You save $39.98</div>
+          <select class="size" data-bundle="copper3">
+            <option value="9990492454948">Size: Large (3 pairs)</option>
+            <option value="9990491144228">Size: Small (3 pairs)</option>
+            <option value="9990494126116">Size: X-Large (3 pairs)</option>
+          </select>
+          <div class="ctaspace">
+            <button class="btn btn-buy" data-qty="3" data-price="34.99" data-name="Copper 3-Pack">Add 3 Pairs — $34.99</button>
+            <div class="stockbar">🔥 Limited stock left</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALPHA SOCK 2 PACK -->
+      <div class="card">
+        <div class="ribbon">SAVE 25%</div>
+        <div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/Untitled_design_1_0205f103-2773-413d-a601-283783a689b4.png" alt="The Alpha Sock 2 Pack"></div>
+        <div class="body">
+          <h3>The Alpha Sock — 2 Pairs</h3>
+          <div class="desc">Targeted arch &amp; heel support sock for plantar-fasciitis relief.</div>
+          <div class="priceline"><span class="now">$44.99</span><span class="was">$59.98</span></div>
+          <div class="perunit">Just $22.50 a pair</div>
+          <div class="savebadge">You save $14.99</div>
+          <select class="size" data-bundle="alphasock2">
+            <option value="9912658591780">Size: Large / X-Large</option>
+            <option value="9912658624548">Size: XX-Large</option>
+          </select>
+          <div class="ctaspace">
+            <button class="btn btn-buy" data-qty="2" data-price="44.99" data-name="Alpha Sock 2-Pack">Add 2 Pairs — $44.99</button>
+            <div class="stockbar">🔥 Almost gone</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SINGLES / ADD-ONS -->
+<section class="sec singles">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="k">Grab a Few Extras</div>
+      <h2>Single Items — Clearance Priced</h2>
+      <p>Add to any order. Everything below is also part of the warehouse clear-out.</p>
+    </div>
+    <div class="sgrid">
+      <div class="scard"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/Deon_Nel_Photography-22.jpg" alt=""><div class="sb"><h4>Alpha II Bunion Corrector</h4><div class="sp">$19.99</div><button class="sadd" data-variant="8667394703396" data-qty="1" data-price="19.99" data-name="Bunion Single">Add to cart</button></div></div>
+      <div class="scard"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/Image-11.jpg" alt=""><div class="sb"><h4>Compression Foot Sleeves</h4><div class="sp">$9.99</div><button class="sadd" data-variant="7675030241316" data-qty="1" data-price="9.99" data-name="Foot Sleeves">Add to cart</button></div></div>
+      <div class="scard"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/IMG_5146.jpg" alt=""><div class="sb"><h4>Compression Calf Sleeve</h4><div class="sp">$9.99</div><button class="sadd" data-variant="8828939599908" data-qty="1" data-price="9.99" data-name="Calf Sleeve">Add to cart</button></div></div>
+      <div class="scard"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/Deon_Nel_Photography-28.jpg" alt=""><div class="sb"><h4>Alpha Compression Gloves</h4><div class="sp">$14.99</div><button class="sadd" data-variant="8667340734500" data-qty="1" data-price="14.99" data-name="Gloves">Add to cart</button></div></div>
+      <div class="scard"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/IMG_5429.jpg" alt=""><div class="sb"><h4>Alpha Sock Slider</h4><div class="sp">$9.99</div><button class="sadd" data-variant="8993538015268" data-qty="1" data-price="9.99" data-name="Sock Slider">Add to cart</button></div></div>
+      <div class="scard"><img src="https://cdn.shopify.com/s/files/1/0004/0534/0196/products/Untitled_design_1_0205f103-2773-413d-a601-283783a689b4.png" alt=""><div class="sb"><h4>The Alpha Sock</h4><div class="sp">$29.99</div><button class="sadd" data-variant="9912658591780" data-qty="1" data-price="29.99" data-name="Alpha Sock Single">Add to cart</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="wrap">
+    <div class="seal">30 DAY<br>GUARANTEE</div>
+    <h2>Love It or Your Money Back</h2>
+    <p>Every order is backed by our 30-day money-back guarantee. If your feet aren't happier, send it back for a full refund — no questions asked. Even at clearance prices, your satisfaction is covered.</p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><div class="k">Real Customers</div><h2>9,000+ Happier Feet</h2></div>
+    <div class="reviews">
+      <div class="rev"><div class="stars">★★★★★</div><p>"I'm on my feet 10 hours a day as a nurse. These copper socks are the only thing that stops the aching. Bought the 6-pack — best decision."</p><div class="who">Donna M.</div><div class="vrf">✓ Verified Buyer</div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>"The bunion corrector actually works. Wore it at night for two weeks and the pain is way down. Grabbed the 4-pack for me and my mom."</p><div class="who">Robert K.</div><div class="vrf">✓ Verified Buyer</div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>"Ordered the Ultimate Kit and it's such great value. The foot sleeves are my favorite for after long runs. Shipping was fast too."</p><div class="who">Marisol T.</div><div class="vrf">✓ Verified Buyer</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq">
+  <div class="wrap" style="max-width:760px">
+    <div class="sec-head"><div class="k">Good to Know</div><h2>Questions?</h2></div>
+    <details open><summary>Is this really a genuine clearance?</summary><div class="ans">Yes. Our warehouse is closing and we have a hard deadline to move our remaining stock. These are real liquidation prices on genuine AlphaSole products — once a size or item sells out, it's gone for good.</div></details>
+    <details><summary>How fast will my order ship?</summary><div class="ans">Orders ship from our US warehouse, typically within 1–2 business days. Bundles include free shipping.</div></details>
+    <details><summary>What if the size isn't right?</summary><div class="ans">You're covered by our 30-day money-back guarantee. If it's not right, reach out and we'll make it right or refund you.</div></details>
+    <details><summary>Can I mix sizes in a bundle?</summary><div class="ans">Each bundle ships in the size you select. Want a mix? Add a couple of single items from the clearance section to round out your order.</div></details>
+  </div>
+</section>
+
+<footer>
+  <div class="logo" style="font-size:1.1rem;color:#fff;margin-bottom:8px">Alpha<span style="color:var(--copper)">Sole</span></div>
+  © AlphaSole. Warehouse clearance while stock lasts. All prices in USD.<br>
+  <a href="#bundles">Shop Clearance</a> · Secure checkout powered by Shopify
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="stickycta"><a href="#bundles" class="btn btn-buy">🛒 Shop the Clearance — Up to 70% Off</a></div>
+
+<script>
+/* ============ CONFIG ============ */
+var STORE = "https://alpha-sole.myshopify.com"; // cart permalink host (native checkout)
+var DISCOUNTS = { // per-bundle discount code (created in Shopify on approval) -> hits exact bundle price
+  "Copper 6-Pack":"CLEAR-COPPER6", "Copper 3-Pack":"CLEAR-COPPER3",
+  "Bunion 4-Pack":"CLEAR-BUNION4", "Alpha Sock 2-Pack":"CLEAR-ALPHA2", "Ultimate Kit":"CLEAR-KIT"
+};
+/* Kit composition by size: bunion(always) + 2 copper + 2 foot sleeve(white) + 1 calf */
+var KIT = {
+  "L":["8667394703396:1","9990492454948:2","7675030241316:2","8828939599908:1"],
+  "S":["8667394703396:1","9990491144228:2","7675030208548:2","8828939567140:1"]
+};
+
+/* ============ FACEBOOK PIXEL ============ */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','438458274020081');
+fbq('track','PageView');
+
+/* ============ CART / CHECKOUT ============ */
+function go(items, name, price){
+  var code = DISCOUNTS[name] || "";
+  var url = STORE + "/cart/" + items.join(",") + "?storefront=true" + (code? "&discount="+encodeURIComponent(code):"");
+  try{
+    fbq('track','AddToCart',{content_name:name,value:parseFloat(price)||0,currency:'USD'});
+    fbq('track','InitiateCheckout',{content_name:name,value:parseFloat(price)||0,currency:'USD'});
+  }catch(e){}
+  window.location.href = url;
+}
+
+document.querySelectorAll('.btn-buy[data-name]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var name=btn.dataset.name, price=btn.dataset.price, qty=btn.dataset.qty||"1";
+    var card=btn.closest('.card');
+    var sel=card?card.querySelector('select.size'):null;
+    var items=[];
+    if(name==="Ultimate Kit"){
+      items = KIT[sel?sel.value:"L"];
+    } else if(btn.dataset.variant){
+      items=[btn.dataset.variant+":"+qty];
+    } else if(sel){
+      items=[sel.value+":"+qty];
+    }
+    go(items,name,price);
+  });
+});
+document.querySelectorAll('.sadd[data-variant]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    go([btn.dataset.variant+":"+(btn.dataset.qty||"1")], btn.dataset.name, btn.dataset.price);
+  });
+});
+
+/* ============ COUNTDOWN (rolling 72h, resets per visitor) ============ */
+(function(){
+  var KEY='as_clear_deadline';
+  var dl=localStorage.getItem(KEY);
+  if(!dl){ dl = Date.now()+72*3600*1000; localStorage.setItem(KEY,dl); }
+  dl=parseInt(dl,10);
+  var el=document.getElementById('countdown');
+  function tick(){
+    var s=Math.max(0,Math.floor((dl-Date.now())/1000));
+    var h=Math.floor(s/3600), m=Math.floor((s%3600)/60), ss=s%60;
+    el.textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(ss<10?'0':'')+ss;
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
